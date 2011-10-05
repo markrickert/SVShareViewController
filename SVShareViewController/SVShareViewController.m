@@ -88,7 +88,10 @@
 #pragma mark Actions
 
 - (void)dismiss {
-	[self.parentViewController dismissModalViewControllerAnimated:YES];
+	
+    if (delegate != nil && [delegate respondsToSelector:@selector(shareViewControllerDidCancel:)])
+        [delegate shareViewControllerDidCancel:self];
+                            
 }
 
 
