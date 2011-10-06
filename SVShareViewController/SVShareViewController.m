@@ -135,7 +135,8 @@
 	if([text isEqualToString:@"\n"]) {
 		[delegate shareViewController:self sendMessage:textView.text forService:self.shareType];
 		return NO;
-	}
+	} else if ([textView.text length] >= 140)
+        return NO;
 	
 	return YES;
 }
