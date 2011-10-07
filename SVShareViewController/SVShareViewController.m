@@ -153,6 +153,15 @@
 	charLabel.text = [NSString stringWithFormat:@"%i", 140-[rTextView.text length]];;
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+    
+#ifdef UI_USER_INTERFACE_IDIOM
+    
+    if(IS_IPAD)
+        return YES;
+#endif
+    return (toInterfaceOrientation == UIInterfaceOrientationPortrait);
+}
 
 #pragma mark -
 #pragma mark Memory Methods
