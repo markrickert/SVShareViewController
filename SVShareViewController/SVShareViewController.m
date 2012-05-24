@@ -53,7 +53,6 @@
 			[self updateCharCount];
 		}
 		
-		[rTextView becomeFirstResponder];
 	}
   
   self.modalPresentationStyle = UIModalPresentationFormSheet;
@@ -64,14 +63,7 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	
-	// this fixes a UI glitch where Retina toolbars don't display the 1px gloss at the top
-	
-	if([[UIScreen mainScreen] respondsToSelector:@selector(scale)] && [[UIScreen mainScreen] scale] == 2) {
-		CALayer *dummyLine = [CALayer layer];
-		dummyLine.frame = CGRectMake(0,1,320,1);
-		dummyLine.backgroundColor = [[UIColor colorWithWhite:1 alpha:0.5] CGColor];
-		[toolbar.layer addSublayer:dummyLine];
-	}
+  [rTextView becomeFirstResponder];
 }
 
 
