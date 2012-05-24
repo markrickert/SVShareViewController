@@ -25,9 +25,9 @@ typedef enum SVShareType SVShareType;
 	IBOutlet UILabel *charLabel, *userLabel;
 }
 
-@property (nonatomic, assign) id<SVShareViewControllerDelegate> delegate;
-@property (nonatomic, assign) NSString *userString;
-@property (nonatomic, assign) NSString *defaultMessage;
+@property (nonatomic, unsafe_unretained) id<SVShareViewControllerDelegate> delegate;
+@property (nonatomic, unsafe_unretained) NSString *userString;
+@property (nonatomic, unsafe_unretained) NSString *defaultMessage;
 
 - (SVShareViewController*)initWithShareType:(SVShareType)shareType;
 

@@ -20,7 +20,6 @@
 	fbViewController.defaultMessage = @"Lorizzle boofron amizzle, tellivizzle adipiscing you son of a bizzle.";
 	
 	[self presentModalViewController:fbViewController animated:YES];
-	[fbViewController release];
 }
 
 - (void)shareOnTwitter {
@@ -31,7 +30,6 @@
 	twViewController.defaultMessage = @"Lorizzle boofron amizzle, tellivizzle adipiscing you son of a bizzle.";
 	
 	[self presentModalViewController:twViewController animated:YES];
-	[twViewController release];
 }
 
 #pragma mark -
@@ -79,8 +77,5 @@
 }
 
 
-- (void)dealloc {
-    [super dealloc];
-}
 
 @end

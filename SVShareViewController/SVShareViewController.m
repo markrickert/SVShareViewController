@@ -29,9 +29,6 @@
 #pragma mark View Life Cycle
 
 
-- (void)dealloc {
-    [super dealloc];
-}
 
 
 - (SVShareViewController*)initWithShareType:(SVShareType)sType {
@@ -107,7 +104,6 @@
 	alertView.transform = CGAffineTransformTranslate(alertView.transform, 0.0, 35);
 	
 	[alertView show];
-	[alertView release];
 }
 
 
