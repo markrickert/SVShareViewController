@@ -157,7 +157,7 @@
     
 #ifdef UI_USER_INTERFACE_IDIOM
     
-    if(IS_IPAD)
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
         return YES;
 #endif
     return (toInterfaceOrientation == UIInterfaceOrientationPortrait);
