@@ -55,6 +55,8 @@
 		
 		[rTextView becomeFirstResponder];
 	}
+  
+  self.modalPresentationStyle = UIModalPresentationFormSheet;
 	
 	return self;
 }
