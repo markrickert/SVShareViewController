@@ -93,7 +93,8 @@
 	
     if (delegate != nil && [delegate respondsToSelector:@selector(shareViewControllerDidCancel:)])
         [delegate shareViewControllerDidCancel:self];
-                            
+    else
+      [self dismissModalViewControllerAnimated:YES];
 }
 
 
@@ -148,6 +149,18 @@
 	[self updateCharCount];
 }
 			 
+- (BOOL)textViewShouldBeginEditing:(UITextView *)aTextView
+{
+  
+  if (rTextView.inputAccessoryView == nil) {
+    NSLog(@"Creating kbd accessory");
+    if(toolbar == nil)toolbar = [[UIToolbar alloc] init];
+    
+    [rTextView setInputAccessoryView:toolbar];
+  }
+  
+  return YES;
+}
 			 
 			 
 - (void)updateCharCount {
@@ -155,14 +168,9 @@
 	charLabel.text = [NSString stringWithFormat:@"%i", 140-[rTextView.text length]];;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
-    
-#ifdef UI_USER_INTERFACE_IDIOM
-    
-    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-        return YES;
-#endif
-    return (toInterfaceOrientation == UIInterfaceOrientationPortrait);
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {    
+
+  return YES;
 }
 
 #pragma mark -
